@@ -22,7 +22,6 @@ const Pagination = ({pageNumber, setPageNumber, info}) => {
 };
 
 const ReactPaginator = styled.div`
-  color: blue;
   font-size: 20px;
 `
 

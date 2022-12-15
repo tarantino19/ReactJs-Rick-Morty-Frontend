@@ -7,16 +7,40 @@ import React, { useState, useEffect } from 'react';
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 import styled from "styled-components";
+import Navbar from "./components/Navbar/Navbar";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Episodes from "./Pages/Episodes";
+import Location from "./Pages/Location";
 
-function App() {
+function App () {
+  return (<>
+      <Router>
+          <div className="App">
+            <Navbar />
 
-  let [pageNumber, setPageNumber] = useState(1);
-  let [fetchedData, updateFetchedData] = useState ([]);
-  let [search, setSearch] = useState("");
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/episodes" element={<Episodes />} />
+                <Route path="/location" element={<Location />} />
+            </Routes>
+          </div>
+      </Router>
+    </>)
+}
 
-  let {info, results} = fetchedData;
 
-  let api = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}`
+const Home = () => {
+
+  const [pageNumber, setPageNumber] = useState(1);
+  const [fetchedData, updateFetchedData] = useState ([]);
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState ("");
+  const [gender, setGender] = useState ("");
+  const [species, setSpecies] = useState ("");
+  
+  const {info, results} = fetchedData;
+
+  const api = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`
 
   useEffect(() => {
     (async function() {
@@ -30,7 +54,8 @@ function App() {
 
   return (<Wrapper>
     <div className="App">
-    <h2 className="text-center ubuntu my-4 fw-bold">
+
+    <h2 className="text-center ubuntu my-4 fw-bold" style={{color: "rgba(10, 87, 100)"}}>
     Character Search
     </h2>
 
@@ -38,8 +63,9 @@ function App() {
     <div className="container">
     
       <div className="row">
-          <Filters />
+          <Filters setStatus={setStatus} setPageNumber={setPageNumber} setGender={setGender} setSpecies={setSpecies}/>
         <div className="col-8"> 
+
           <div className="row">
             <Cards results={results} />
           </div>
@@ -95,10 +121,12 @@ h2 {
 }
 
 .container {
-  width: 80%;
+  width: 100%;
 }
 
-
+img {
+  box-shadow: 1px 1px 6px;
+}
 
 
 `

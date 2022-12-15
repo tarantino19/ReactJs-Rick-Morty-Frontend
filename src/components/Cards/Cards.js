@@ -11,13 +11,9 @@ const Cards = ({results}) => {
       
       return <div key={id} className="col-4 position-relative mb-4">
         <div className={styles.cards}>
-          <img src={image} alt={name} className={`${styles.img} img-fluid`} />  
+          <img src={image} alt={name} className={`${styles.img} img-fluid mb-2`} />  
           <div className={`${styles.contentPadding} content`}>
             <div className="fs-5 fw-bold mb-3">{name}</div>
-            <div className="">
-              <div className="fs-6"><i>Last Seen Episode:</i></div>
-              <div className="fs-5 pb-3">{location.name}</div>
-            </div>
             <div className="">Gender: {gender}</div>
             <div className="">Specie: {species}</div>
           </div>
@@ -55,7 +51,7 @@ const Cards = ({results}) => {
       //main end div
     })
   } else {
-    display = 'No Characters Found';
+    display = 'No Luck Looking for Characters... Yet';
   }
 
   return (<>
@@ -65,3 +61,9 @@ const Cards = ({results}) => {
 }
 
 export default Cards;
+
+
+// <div className="">
+// <div className="fs-6"><i>Last Seen Episode:</i></div>
+// <div className="fs-5 pb-3">{location.name}</div>
+// </div>
