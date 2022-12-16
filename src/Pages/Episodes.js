@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cards from '../components/Cards/Cards'
+import InputGroup from '../components/Filter/Category/InputGroup';
+
 
 const Episodes = () => {
 
@@ -43,7 +45,10 @@ const Episodes = () => {
       </div>
       <div className="row mt-5">
         <div className="col-3">
+        <h4 className="text-center mb-4">
           Pick an Episode
+        </h4>
+        <InputGroup setId={setId} total={51} name="Episode" />
         </div>
         <div className="col-8">
           <div className="row">

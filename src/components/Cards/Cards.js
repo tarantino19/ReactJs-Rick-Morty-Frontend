@@ -17,6 +17,10 @@ const Cards = ({results}) => {
             <div className="">Gender: {gender}</div>
             <div className="">Specie: {species}</div>
           </div>
+          <div className="ps-.5 ms-2 location mt-2 pe-1">
+          <div className="fs-6"><i>Last Seen Location:</i></div>
+          <div className="fs-5 pb-3 fw-bold">{location.name}</div>
+          </div>
         </div>
 
         {(() => {
@@ -63,7 +67,3 @@ const Cards = ({results}) => {
 export default Cards;
 
 
-// <div className="">
-// <div className="fs-6"><i>Last Seen Episode:</i></div>
-// <div className="fs-5 pb-3">{location.name}</div>
-// </div>
