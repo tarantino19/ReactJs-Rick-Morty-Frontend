@@ -46,15 +46,15 @@ const Location = () => {
         </h6>
       </div>
       <div className="row mt-5">
-        <div className="col-3">
+        <div className="col-lg-3 col-12">
         <h4 className="text-center mb-4">
           Pick a Location
         </h4>
         <InputGroup setId={setId} total={126} name="Location" />
         </div>
-        <div className="col-8">
+        <div className="col-lg-8 col-12">
           <div className="row">
-              <Cards results={results}/>
+              <Cards page="/location/" results={results}/>
           </div>
         </div>
       </div>
